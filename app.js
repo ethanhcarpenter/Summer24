@@ -21,8 +21,10 @@ const uploadFile=multer({
     storage:storage
 })
 
+app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(currentPath, 'public')));
+app.use(express.urlencoded({ extended: true }));
 
 
 
@@ -47,6 +49,11 @@ app.post("/addClass",uploadFile.any(),(req,res)=>{
             console.error("Error:", err);
         }
     })();
+});
+
+app.post("/createPeople",(req,res)=>{
+    console.log(req.body)
+    
 });
 
 app.listen(3001, async() => {

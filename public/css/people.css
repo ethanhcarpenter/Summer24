@@ -1,0 +1,100 @@
+/* Main container styling */
+.main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+/* People container styling */
+.people-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Person item styling */
+.person-item {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+/* Person info styling */
+.person-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Person name styling */
+.person-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Add test button styling */
+.add-test-button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.add-test-button:hover {
+    background-color: #2980b9;
+}
+
+/* Test list styling */
+.test-list {
+    display: none;
+    padding-top: 10px;
+}
+
+/* Test item styling */
+.test-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Test item hover effect */
+.test-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Questions styling */
+.question-list {
+    display: none;
+    padding-left: 20px;
+}
+
+/* Question item styling */
+.question-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
