@@ -3,7 +3,7 @@ import path from 'path';
 import cors from 'cors'
 import multer from 'multer'
 import fs from 'fs'
-import { getNamesFromFile,sql } from './public/js/exports.js';
+import { getNamesFromFile,sql} from './public/js/exports.js';
 
 
 const app = express();
@@ -49,6 +49,7 @@ app.post("/addClass",uploadFile.any(),(req,res)=>{
     })();
 });
 
-app.listen(3001, () => {
-    console.log('Server is running on port 3001');
+app.listen(3001, async() => {
+    console.log("Server is running on port 3001");
+    // console.log( await sql("SELECT * FRom 11S ","classes"))
 });

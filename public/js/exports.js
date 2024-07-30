@@ -26,17 +26,20 @@ export function pool(db) {
     }).promise();
 }
 
+
 export async function sql(query, db, values = []) {
     const p = pool(db);
     try {
-        await p.query(query, values);
+        const [results, fields] = await p.query(query, values);
         console.log("Query executed successfully.");
+        return results;
     } catch (err) {
         console.error("Error executing query:", err);
     } finally {
-        await p.end(); 
+        await p.end();
     }
 }
+
 
 
 
