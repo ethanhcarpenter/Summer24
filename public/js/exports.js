@@ -1,7 +1,7 @@
 import xlsx from "xlsx";
 import mysql from 'mysql2';
-import configDotenv from "dotenv";
-configDotenv.config();
+import dotenv from "dotenv";
+dotenv.config();
 
 
 export function getNamesFromFile(file){
@@ -18,10 +18,13 @@ export function getNamesFromFile(file){
 }
 
 export function pool(db) {
+    console.log('DB_HOSTER:', process.env.DB_HOSTER);
+    console.log('DB_USERMAN:', process.env.DB_USERMAN);
+    console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
     return mysql.createPool({
-        host: processMultipart.env.DB_HOST,
-        user: process.ev.DB_ROOT,
-        password: processMultipart.env.DB_PASSWORD,
+        host: process.env.DB_HOSTER,
+        user: process.env.DB_USERMAN,
+        password: process.env.DB_PASSWORD,
         database: db
     }).promise();
 }

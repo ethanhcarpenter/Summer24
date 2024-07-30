@@ -11,6 +11,7 @@ logs/
 # Ignore compiled files
 dist/
 build/
+files/
 
 # Ignore system files
 .DS_Store
