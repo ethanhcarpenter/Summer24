@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/broadStyle.css">
+    <link rel="stylesheet" href="../css/addClass.css">
+    <title>Add Class</title>
+</head>
+<body>
+    <section class="main">
+        <section class="centred">
+            <form id="uploadForm">
+                <section class="className">
+                    <label for="newClassName">Class Name</label>
+                    <input type="text" id="newClassName" name="className" required>
+                </section>
+                <label for="importFile">Import File</label>
+                
+                <input type="file" id="importFile" name="file" required>
+                <label id="importedFileName" class="importedFileName"></label>
+                <button type="submit" id="createClass">Create Class</button>
+            </form>
+        </section>
+    </section>
+    
+    <script src="../js/addClass.js"></script>
+</body>
+</html>
