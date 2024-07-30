@@ -16,19 +16,19 @@
 .people-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
     width: 100%;
     max-width: 800px;
 }
 
 /* Person item styling */
 .person-item {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #d1d1d1; /* Light grey border */
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
     position: relative;
 }
 
@@ -43,23 +43,24 @@
 .person-name {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #333;
+    color: #333333; /* Dark grey font */
 }
 
 /* Add test button styling */
 .add-test-button {
-    background-color: #3498db;
+    background-color: #007bff; /* Blue background */
     color: #ffffff;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Button hover effect */
 .add-test-button:hover {
-    background-color: #2980b9;
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
 }
 
 /* Test list styling */
@@ -70,18 +71,19 @@
 
 /* Test item styling */
 .test-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: #f8f9fa; /* Light grey background */
+    border: 1px solid #ced4da; /* Grey border */
     border-radius: 5px;
     margin-bottom: 5px;
     padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Test item hover effect */
 .test-item:hover {
-    background-color: #f0f0f0;
+    background-color: #e9ecef; /* Slightly darker grey on hover */
+    border-color: #adb5bd;
 }
 
 /* Questions styling */
@@ -92,8 +94,8 @@
 
 /* Question item styling */
 .question-item {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ced4da; /* Grey border */
     border-radius: 5px;
     margin-bottom: 5px;
     padding: 10px;
