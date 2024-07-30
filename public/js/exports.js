@@ -18,12 +18,9 @@ export function getNamesFromFile(file){
 }
 
 export function pool(db) {
-    console.log('DB_HOSTER:', process.env.DB_HOSTER);
-    console.log('DB_USERMAN:', process.env.DB_USERMAN);
-    console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
     return mysql.createPool({
-        host: process.env.DB_HOSTER,
-        user: process.env.DB_USERMAN,
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: db
     }).promise();
