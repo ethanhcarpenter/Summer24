@@ -6,7 +6,6 @@ function sizeBar(){
     const viewHeight=window.innerHeight;
     const totalHeight=container.scrollHeight;
     const scrollbarHeight=(viewHeight**2)/totalHeight;
-    
     if (totalHeight < viewHeight) {
         bar.style.display = 'none';
     } else {
@@ -24,18 +23,22 @@ function sizeBar(){
     });
     function onMouseMove(e) {
         if (!isDragging) return;
-    
         const barRect = bar.getBoundingClientRect();
         const mouseY = e.clientY;
-        const barTop = barRect.top;
-        const difference = mouseY - clickPosition - barTop;
+        const barTop = barRect.top; 
+        const difference = mouseY - clickPosition - barTop; 
         let top = bar.offsetTop + difference;
-        let constrainedTop = Math.max(20, Math.min(viewHeight, top));
-        if(constrainedTop+scrollbarHeight+20>viewHeight){constrainedTop=viewHeight-20-scrollbarHeight;}
+        let constrainedTop = Math.max(20, Math.min(viewHeight - scrollbarHeight - 20, top));
         bar.style.top = `${constrainedTop}px`;
         clickPosition = e.clientY - constrainedTop;
-    }
-    
+        let percentageMoved = (constrainedTop-20) / ((viewHeight-40) - scrollbarHeight);
+        const scrollAmount = (totalHeight-viewHeight+20) * percentageMoved;
+        const main = document.querySelector(".main");
+        main.scrollTo({
+            top: scrollAmount,
+            behavior: 'instant'
+        });
+    }  
     function onMouseUp() {
         isDragging = false;
         document.removeEventListener('mousemove', onMouseMove);
