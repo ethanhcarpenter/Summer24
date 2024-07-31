@@ -26,9 +26,3 @@ function createPerson(firstname, surname) {
     const peopleContainer = document.querySelector(".people-container");
     peopleContainer.appendChild(outerDiv);
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    for (let index = 0; index < 300; index++) {
-        createPerson("John", "Doe");
-    }
-});

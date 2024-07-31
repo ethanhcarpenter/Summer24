@@ -12,6 +12,7 @@ function sizeBar(){
         bar.style.display = 'block'; 
         bar.style.height = `${scrollbarHeight}px`;
     }
+    if(bar.offsetTop>viewHeight){bar.style.top = `${viewHeight+20}px`;}
     let isDragging = false;
     let clickPosition=0;
     bar.addEventListener('mousedown', (e) => {
@@ -74,16 +75,18 @@ function dragElement(elmnt) {
       document.onmousemove = null;
     }
 }
-
-
-
-
-
-
-
-window.addEventListener("resize",sizeBar);
 window.addEventListener("mouseup",()=>{
     const container=document.querySelector(".people-container");
     container.style.userSelect="all";
 });
+const observer = new MutationObserver((mutationsList, observer) => {
+    for (let mutation of mutationsList) {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            sizeBar();
+        }
+    }
+});
+const container=document.querySelector(".people-container");
+observer.observe(container, { childList: true });
+window.addEventListener("resize",sizeBar);
 document.addEventListener("DOMContentLoaded",sizeBar);
