@@ -44,6 +44,14 @@ function sizeBar(){
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
     }
+    function onMainScroll() {
+        const main = document.querySelector(".main");
+        const scrollTop = main.scrollTop; 
+        let percentageScrolled = scrollTop / (totalHeight - viewHeight + 20);
+        let barTop = 20 + percentageScrolled * ((viewHeight - 40) - scrollbarHeight);
+        bar.style.top = `${barTop}px`;
+    }
+    document.querySelector(".main").addEventListener('scroll', onMainScroll);
 }
 
 function dragElement(elmnt) {
@@ -65,7 +73,8 @@ function dragElement(elmnt) {
       document.onmouseup = null;
       document.onmousemove = null;
     }
-  }
+}
+
 
 
 
