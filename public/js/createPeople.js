@@ -28,7 +28,7 @@ function createPerson(firstname, surname) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    for (let index = 0; index < 30; index++) {
+    for (let index = 0; index < 100; index++) {
         createPerson("John", "Doe");
     }
 });
