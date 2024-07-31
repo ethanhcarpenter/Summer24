@@ -66,14 +66,14 @@ function createPerson(firstname, surname, tests) {
 window.createPerson = createPerson;
 
 
-document.addEventListener("DOMContentLoaded",async ()=>{
+// document.addEventListener("DOMContentLoaded",async ()=>{
 
-    const response = await fetch("/getPeople");
-    const peopleData = await response.json();
+//     const response = await fetch("/getPeople");
+//     const peopleData = await response.json();
 
-    console.log(peopleData);
+//     console.log(peopleData);
 
-});
+// });
 
 
 

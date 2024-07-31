@@ -1,11 +1,9 @@
 
-function sizeBar(){
-    const a=document.getElementById("dfs");
-    const container=document.querySelector(".people-container");
-    const bar=document.querySelector(".custom-scrollbar");
+function sizeBar(container,scrollbarID,main){
+    const bar=document.getElementById(scrollbarID);
     const viewHeight=window.innerHeight;
     const totalHeight=container.scrollHeight;
-    const scrollbarHeight=(viewHeight**2)/totalHeight;
+    const scrollbarHeight=((viewHeight-40)**2)/totalHeight;
     if (totalHeight < viewHeight) {
         bar.style.display = 'none';
     } else {
@@ -34,7 +32,6 @@ function sizeBar(){
         clickPosition = e.clientY - constrainedTop;
         let percentageMoved = (constrainedTop-20) / ((viewHeight-40) - scrollbarHeight);
         const scrollAmount = (totalHeight-viewHeight+20) * percentageMoved;
-        const main = document.querySelector(".main");
         main.scrollTo({
             top: scrollAmount,
             behavior: 'instant'
@@ -46,66 +43,38 @@ function sizeBar(){
         document.removeEventListener('mouseup', onMouseUp);
     }
     function onMainScroll() {
-        const main = document.querySelector(".main");
         const scrollTop = main.scrollTop; 
         let percentageScrolled = scrollTop / (totalHeight - viewHeight + 20);
         let barTop = 20 + percentageScrolled * ((viewHeight - 40) - scrollbarHeight);
         bar.style.top = `${barTop}px`;
     }
-    document.querySelector(".main").addEventListener('scroll', onMainScroll);
+    main.addEventListener('scroll', onMainScroll);
 }
+const container=document.querySelector(".people-container");
+const main=document.querySelector(".main");
 
-function dragElement(elmnt) {
-    var pos2 = 0, pos4 = 0;
-    elmnt.onmousedown = dragMouseDown;
-    function dragMouseDown(e) {
-      e.preventDefault();
-      pos4 = e.clientY;
-      document.onmouseup = closeDragElement;
-      document.onmousemove = elementDrag;
-    }
-    function elementDrag(e) {
-      e.preventDefault();
-      pos2 = pos4 - e.clientY;
-      pos4 = e.clientY;
-      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    }
-    function closeDragElement() {
-      document.onmouseup = null;
-      document.onmousemove = null;
-    }
-}
+
 window.addEventListener("mouseup",()=>{
-    const container=document.querySelector(".people-container");
     container.style.userSelect="all";
 });
 const observer = new MutationObserver((mutationsList, observer) => {
     for (let mutation of mutationsList) {
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-            sizeBar();
+            sizeBar(container,"scrollBarMain",main);
         }
     }
 });
-//dont know why the second one doesnt fire
-// const peopleItems = document.querySelectorAll('.person-item');
-// const testLists = document.querySelectorAll('.test-list');
-// peopleItems.forEach(peep=>{
-//     peep.addEventListener("click",async ()=>{
-//         await new Promise(r => setTimeout(r, 200));
-//         sizeBar()
-//     });
-// });
-// testLists.forEach(tl=>{
-//     tl.addEventListener("click",async ()=>{
-//         await new Promise(r => setTimeout(r, 200));
-//         sizeBar()
-//     });
-// });
-setInterval(sizeBar,100)
 
+    setInterval(()=>{
+        sizeBar(container,"scrollBarMain",main)
+    },100)
+    
+    
 
-
-const container=document.querySelector(".people-container");
 observer.observe(container, { childList: true });
-window.addEventListener("resize",sizeBar);
-document.addEventListener("DOMContentLoaded",sizeBar);
+window.addEventListener("resize",()=>{
+    sizeBar(container,"scrollBarMain",main)
+});
+document.addEventListener("DOMContentLoaded",()=>{
+    sizeBar(container,"scrollBarMain",main)
+});
