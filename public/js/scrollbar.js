@@ -5,7 +5,6 @@ function sizeBar(){
     const bar=document.querySelector(".custom-scrollbar");
     const viewHeight=window.innerHeight;
     const totalHeight=container.scrollHeight;
-    console.log(totalHeight)
     const scrollbarHeight=(viewHeight**2)/totalHeight;
     if (totalHeight < viewHeight) {
         bar.style.display = 'none';
@@ -102,7 +101,7 @@ const observer = new MutationObserver((mutationsList, observer) => {
 //         sizeBar()
 //     });
 // });
-
+setInterval(sizeBar,100)
 
 
 
