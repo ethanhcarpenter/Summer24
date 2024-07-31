@@ -63,6 +63,24 @@ function createPerson(firstname, surname, tests) {
     const peopleContainer = document.querySelector(".people-container");
     peopleContainer.appendChild(outerDiv);
 }
+window.createPerson = createPerson;
+
+
+document.addEventListener("DOMContentLoaded",async ()=>{
+
+    const response = await fetch("/getPeople");
+    const peopleData = await response.json();
+
+    console.log(peopleData);
+
+});
+
+
+
+
+
+
+
 
 //courtesy of gpt
 const tests = [
@@ -107,4 +125,4 @@ const tests = [
         ]
     }
 ];
-createPerson("jack","doye",tests)
+createPerson("carl","marx",tests)

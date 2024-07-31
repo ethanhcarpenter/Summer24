@@ -50,9 +50,12 @@ app.post("/addClass",uploadFile.any(),(req,res)=>{
         }
     })();
 });
+app.get("/getPeople",async (req,res)=>{
+    const people=await sql()
+});
 
 app.post("/createPeople",(req,res)=>{
-    console.log(req.body)
+    console.log(req.body.id)
     
 });
 

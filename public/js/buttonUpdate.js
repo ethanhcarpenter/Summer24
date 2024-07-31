@@ -1,6 +1,4 @@
 const nav=document.getElementById("classButtons");
-
-const embed=document.getElementById("openPage");
 const config = { childList: true };
 const callback = function(mutationsList, observer) {
     for(const mutation of mutationsList) {
@@ -9,12 +7,13 @@ const callback = function(mutationsList, observer) {
                 node.addEventListener("click",()=>{
                     const parentWindow=window.top.document;
                     const embed = parentWindow.getElementById("openPage")
+                    embed.setAttribute("src","../html/people.html")
                     fetch("http://localhost:3001/createPeople", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
                         },
-                        body: JSON.stringify({ id: node.id,embed: embed}),
+                        body: JSON.stringify({ id: node.id}),
                     });
                 });
             });
