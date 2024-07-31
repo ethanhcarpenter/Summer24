@@ -5,6 +5,7 @@ function sizeBar(){
     const bar=document.querySelector(".custom-scrollbar");
     const viewHeight=window.innerHeight;
     const totalHeight=container.scrollHeight;
+    console.log(totalHeight)
     const scrollbarHeight=(viewHeight**2)/totalHeight;
     if (totalHeight < viewHeight) {
         bar.style.display = 'none';
@@ -86,6 +87,25 @@ const observer = new MutationObserver((mutationsList, observer) => {
         }
     }
 });
+//dont know why the second one doesnt fire
+// const peopleItems = document.querySelectorAll('.person-item');
+// const testLists = document.querySelectorAll('.test-list');
+// peopleItems.forEach(peep=>{
+//     peep.addEventListener("click",async ()=>{
+//         await new Promise(r => setTimeout(r, 200));
+//         sizeBar()
+//     });
+// });
+// testLists.forEach(tl=>{
+//     tl.addEventListener("click",async ()=>{
+//         await new Promise(r => setTimeout(r, 200));
+//         sizeBar()
+//     });
+// });
+
+
+
+
 const container=document.querySelector(".people-container");
 observer.observe(container, { childList: true });
 window.addEventListener("resize",sizeBar);

@@ -1,3 +1,7 @@
+*{
+    user-select: none;
+}
+
 /* Main container styling */
 .main {
     position: fixed;
@@ -11,6 +15,7 @@
     padding: 20px;
     background-color: #f0f0f0;
     overflow: scroll;
+    
 }
 
 /* People container styling */
@@ -69,6 +74,7 @@
 .test-list {
     display: none;
     padding-top: 10px;
+    
 }
 
 /* Test item styling */
@@ -101,6 +107,14 @@
     border-radius: 5px;
     margin-bottom: 5px;
     padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Added for alignment */
+}
+
+/* Marks styling */
+.mark {
+    font-weight: bold;
+    color: #333333; /* Dark grey font */
 }
 
 .custom-scrollbar{
