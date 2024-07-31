@@ -10,15 +10,17 @@
     align-items: flex-start;
     padding: 20px;
     background-color: #f0f0f0;
+    overflow: scroll;
 }
 
 /* People container styling */
 .people-container {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 2px;
     width: 100%;
     max-width: 800px;
+    padding-bottom: 20px;
 }
 
 /* Person item styling */
