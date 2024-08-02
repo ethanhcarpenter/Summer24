@@ -2,8 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const peopleItems = document.querySelectorAll('.person-item');
     const testItems = document.querySelectorAll('.test-item');
 
+    const addTestButtons = document.querySelectorAll('.add-test-button');
+    addTestButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+        });
+    });
+    
     peopleItems.forEach(personItem => {
-        personItem.addEventListener('click', () => {
+        personItem.addEventListener('click', (e) => {
+
             const testList = personItem.querySelector('.test-list');
             if (testList) {
                 const isVisible = testList.style.display === 'block';
