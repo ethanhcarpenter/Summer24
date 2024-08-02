@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const peopleItems = document.querySelectorAll('.person-item');
+document.addEventListener('DOMContentLoaded', (event) => {
     const testItems = document.querySelectorAll('.test-item');
+    const qItems = document.querySelectorAll('.question-item');
 
-    const addTestButtons = document.querySelectorAll('.add-test-button');
+    const addTestButtons = document.querySelectorAll('.change-test-button');
     addTestButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -10,16 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    peopleItems.forEach(personItem => {
-        personItem.addEventListener('click', (e) => {
+    testItems.forEach(testItem => {
+        testItem.addEventListener('click', (e) => {
 
-            const testList = personItem.querySelector('.test-list');
+            const testList = testItem.querySelector('.question-list');
             if (testList) {
                 const isVisible = testList.style.display === 'block';
                 testList.style.display = isVisible ? 'none' : 'block';
                 
                 if (!isVisible) {
-                    const allQuestionLists = personItem.querySelectorAll('.question-list');
+                    const allQuestionLists = testItem.querySelectorAll('.feedback-list');
                     allQuestionLists.forEach(questionList => {
                         questionList.style.display = 'none';
                     });
@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    testItems.forEach(testItem => {
-        testItem.addEventListener('click', (e) => {
+    qItems.forEach(qItem => {
+        qItem.addEventListener('click', (e) => {
             e.stopPropagation(); 
-            const questionList = testItem.querySelector('.question-list');
+            const questionList = qItem.querySelector('.feedback-list');
             if (questionList) {
                 const isVisible = questionList.style.display === 'block';
                 questionList.style.display = isVisible ? 'none' : 'block';

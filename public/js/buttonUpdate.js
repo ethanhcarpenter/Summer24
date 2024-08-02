@@ -6,8 +6,8 @@ const callback = function(mutationsList, observer) {
             mutation.addedNodes.forEach(node => {
                 node.addEventListener("click",()=>{
                     const parentWindow=window.top.document;
-                    const embed = parentWindow.getElementById("openPage")
-                    embed.setAttribute("src","../html/people.html")
+                    const iframe = parentWindow.getElementById("openPage")
+                    iframe.setAttribute("src","../html/people.html")
                     fetch("http://localhost:3001/createPeople", {
                         method: "POST",
                         headers: {

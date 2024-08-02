@@ -8,8 +8,8 @@
 </head>
 <body>
     <section class="sidebar">
-        <button onclick="document.getElementById('openPage').setAttribute('src','/html/addClass.html')" class="addClassButton">+ Class</button>
-        <button onclick="document.getElementById('openPage').setAttribute('src','/html/addClass.html')" class="addClassButton">+ Class</button>
+        <button onclick="document.getElementById('openPage').setAttribute('src','/html/tests.html')" class="addClassButton">View Tests</button>
+        <button onclick="document.getElementById('openPage').setAttribute('src','/html/addClass.html')" class="addClassButton">Add Class</button>
         <div class="scrollArea">
             <nav id="classButtons">
                 <!-- Classes -->
@@ -37,19 +37,17 @@
                 <button>23</button>
                 <button>23</button>
                 <button>23</button>
-                <div id="scrollBarMain2" class="custom-scrollbar"></div>
+                <div id="scrollBarMain" class="custom-scrollbar"></div>
                 
             </nav>
         </div>
     </section>
 
     <section class="main">
-        <embed id="openPage" src="html/addClass.html" >
+        <iframe id="openPage" src="html/people.html" ></iframe>
     </section>
+    
+    <script src="js/scrollbar.js"></script>
     <script src="js/buttonUpdate.js"></script>
-    <script>
-        const embed = document.getElementById("openPage")
-        embed.setAttribute("src","../html/people.html")
-    </script>
 </body>
 </html>

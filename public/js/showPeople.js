@@ -125,4 +125,9 @@ const tests = [
         ]
     }
 ];
-createPerson("carl","marx",tests)
+
+for (let index = 0; index < 30; index++) {
+    
+    createPerson("carl","marx",tests)
+    
+}

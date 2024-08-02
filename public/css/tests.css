@@ -1,0 +1,130 @@
+*{
+    user-select: none;
+}
+
+.main {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f0f0f0;
+    overflow: scroll;
+    
+}
+
+.test-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 90%;
+    max-width: 800px;
+    padding-bottom: 20px;
+    
+}
+
+
+.test-item {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #d1d1d1; /* Light grey border */
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+}
+
+
+.test-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.test-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333333; /* Dark grey font */
+}
+
+
+.change-test-button {
+    background-color: #007bff; /* Blue background */
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.change-test-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+
+.question-list {
+    display: none;
+    padding-top: 10px;
+    
+}
+
+
+.question-item {
+    background-color: #f8f9fa; /* Light grey background */
+    border: 1px solid #ced4da; /* Grey border */
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
+.question-item:hover {
+    background-color: #e9ecef; /* Slightly darker grey on hover */
+    border-color: #adb5bd;
+}
+
+
+.feedback-list {
+    display: none;
+    padding-left: 20px;
+}
+
+
+.feedback-item {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ced4da; /* Grey border */
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Added for alignment */
+}
+
+
+.mark {
+    font-weight: bold;
+    color: #333333; /* Dark grey font */
+    right: 0px;
+}
+
+.custom-scrollbar{
+    width:20px;
+    position: fixed;
+    right: 0;
+    background: #696969;
+    margin-right: 1%;
+    border-radius: 10px;
+    
+}
