@@ -102,8 +102,11 @@ const test5={
         ]
     };
 
+for (let index = 0; index <10; index++) {
     showTest(test1)
     showTest(test2)
     showTest(test3)
     showTest(test4)
     showTest(test5)
+    
+}

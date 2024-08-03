@@ -1,6 +1,6 @@
 function sizeBar(container, scrollbarID, main) {
     const embedDocument=iframe.contentDocument;
-    let bar = scrollbarID === "scrollBarMain2" ? embedDocument.getElementById(scrollbarID) : document.getElementById(scrollbarID);
+    let bar = scrollbarID !== "scrollBarMain" ? embedDocument.getElementById(scrollbarID) : document.getElementById(scrollbarID);
 
     function updateScrollbar() {
         const viewHeight = main.getBoundingClientRect().height +1;
@@ -38,7 +38,6 @@ function sizeBar(container, scrollbarID, main) {
         
         
         let constrainedTop = Math.max(topOffest, Math.min(main.getBoundingClientRect().top + main.getBoundingClientRect().height - parseFloat(bar.style.height) - bottomOffset, top));
-        console.log(constrainedTop)
         bar.style.top = `${constrainedTop}px`;
         clickPosition = e.clientY - constrainedTop;
         constrainedTop=constrainedTop-main.getBoundingClientRect().top
@@ -66,7 +65,6 @@ function sizeBar(container, scrollbarID, main) {
         let barTop = 20 + percentageScrolled * ((main.getBoundingClientRect().height - 20-bottomOffset-main.getBoundingClientRect().top) - parseFloat(bar.style.height));
         let newConstainedTop= ((percentageScrolled)*((main.getBoundingClientRect().height - 20-bottomOffset)-+parseFloat(bar.style.height)))+20
         newConstainedTop=newConstainedTop+main.getBoundingClientRect().top
-        console.log(newConstainedTop)
         bar.style.top = `${newConstainedTop}px`;
 
     }
@@ -106,6 +104,12 @@ iframe.addEventListener("load",(e)=>{
         const peopleMain=embedDocument.querySelector(".main")
         const peopleContainer=embedDocument.querySelector(".people-container")
         sizeBar(peopleContainer,"scrollBarMain2",peopleMain)
+    }
+    if(iframe.getAttribute("src").endsWith("tests.html")){
+        const embedDocument=iframe.contentDocument;
+        const peopleMain=embedDocument.querySelector(".main")
+        const peopleContainer=embedDocument.querySelector(".test-container")
+        sizeBar(peopleContainer,"scrollBarMain3",peopleMain)
     }
 });
 
