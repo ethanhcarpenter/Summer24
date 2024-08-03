@@ -23,17 +23,26 @@ function showTest(test){
         const qItem=document.createElement("div");
         qItem.setAttribute("class","question-item");
 
+        const questionNumber=document.createElement("span");
+        questionNumber.innerText=`Q${String(parseInt(i)+1).padStart(2,"0")}.`;
+
         const questionSpan=document.createElement("span");
         questionSpan.innerText=question.question
 
         const mark = document.createElement("span");
         mark.innerText=question.mark;
 
+        const copyQuestionButton=document.createElement("button");
+        copyQuestionButton.setAttribute("class","copy-question")
+        copyQuestionButton.innerText="Copy Question"
+
         const feedbackList=document.createElement("div");
         feedbackList.setAttribute("clas","feedback-list")
 
+        qItem.appendChild(questionNumber);
         qItem.appendChild(questionSpan);
         qItem.appendChild(mark);
+        qItem.appendChild(copyQuestionButton);
         qList.appendChild(qItem);
     }
     info.appendChild(testNameSpan);

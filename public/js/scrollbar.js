@@ -3,14 +3,18 @@ function sizeBar(container, scrollbarID, main) {
     let bar = scrollbarID === "scrollBarMain2" ? embedDocument.getElementById(scrollbarID) : document.getElementById(scrollbarID);
 
     function updateScrollbar() {
-        const viewHeight = window.innerHeight;
+        const viewHeight = main.getBoundingClientRect().height +1;
         const totalHeight = container.scrollHeight;
         const scrollbarHeight = ((viewHeight - 40) ** 2) / totalHeight;
-
-        if (totalHeight < viewHeight) {
+        bar.style.top = `${main.getBoundingClientRect().top+20}px`;
+        
+        
+        if (totalHeight <= viewHeight) {
             bar.style.display = 'none';
         } else {
             bar.style.display = 'block';
+            
+
             bar.style.height = `${scrollbarHeight}px`;
         }
 
@@ -27,14 +31,21 @@ function sizeBar(container, scrollbarID, main) {
         const barRect = bar.getBoundingClientRect();
         const mouseY = e.clientY;
         const barTop = barRect.top;
+        const bottomOffset=(scrollbarID!=="scrollBarMain")?60:20;
+        const topOffest=(scrollbarID!=="scrollBarMain")?20:main.getBoundingClientRect().top+20;
         const difference = mouseY - clickPosition - barTop;
         let top = bar.offsetTop + difference;
-        const bottomOffset=(scrollbarID==="scrollBarMain2")?60:20;
-        let constrainedTop = Math.max(20, Math.min(window.innerHeight - parseFloat(bar.style.height) - bottomOffset, top));
+        
+        
+        let constrainedTop = Math.max(topOffest, Math.min(main.getBoundingClientRect().top + main.getBoundingClientRect().height - parseFloat(bar.style.height) - bottomOffset, top));
+        console.log(constrainedTop)
         bar.style.top = `${constrainedTop}px`;
         clickPosition = e.clientY - constrainedTop;
-        let percentageMoved = (constrainedTop - 20) / ((window.innerHeight - 20-bottomOffset) - parseFloat(bar.style.height));
-        const scrollAmount = (container.scrollHeight - window.innerHeight + bottomOffset) * percentageMoved;
+        constrainedTop=constrainedTop-main.getBoundingClientRect().top
+        let percentageMoved = (constrainedTop - 20) / ((main.getBoundingClientRect().height - 20-bottomOffset) - parseFloat(bar.style.height));
+        
+        const scrollAmount = (container.scrollHeight - main.getBoundingClientRect().height + bottomOffset) * percentageMoved;
+        
         main.scrollTo({
             top: scrollAmount,
             behavior: 'instant'
@@ -49,10 +60,15 @@ function sizeBar(container, scrollbarID, main) {
 
     function onMainScroll() {
         const scrollTop = main.scrollTop;
-        const bottomOffset=(scrollbarID==="scrollBarMain2")?60:20;
-        let percentageScrolled = scrollTop / (container.scrollHeight - window.innerHeight + bottomOffset);
-        let barTop = 20 + percentageScrolled * ((window.innerHeight - 20-bottomOffset) - parseFloat(bar.style.height));
-        bar.style.top = `${barTop}px`;
+
+        const bottomOffset=(scrollbarID!=="scrollBarMain")?60:20;
+        let percentageScrolled = scrollTop / (container.scrollHeight - main.getBoundingClientRect().height + bottomOffset);
+        let barTop = 20 + percentageScrolled * ((main.getBoundingClientRect().height - 20-bottomOffset-main.getBoundingClientRect().top) - parseFloat(bar.style.height));
+        let newConstainedTop= ((percentageScrolled)*((main.getBoundingClientRect().height - 20-bottomOffset)-+parseFloat(bar.style.height)))+20
+        newConstainedTop=newConstainedTop+main.getBoundingClientRect().top
+        console.log(newConstainedTop)
+        bar.style.top = `${newConstainedTop}px`;
+
     }
 
     function onMouseDown(e) {

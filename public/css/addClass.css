@@ -77,11 +77,12 @@ input[type="file"] {
 }
 
 /* Button styling */
+/* Button styling */
 button {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
-    background-color: #4CAF50;
+    background-color: #3498db; /* Blue background */
     color: white;
     border: none;
     border-radius: 5px;
@@ -92,5 +93,6 @@ button {
 
 /* Button hover effect */
 button:hover {
-    background-color: #45a049;
+    background-color: #2980b9; /* Darker blue on hover */
 }
+
