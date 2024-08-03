@@ -45,6 +45,10 @@ function showTest(test){
         const copyQuestionButton=document.createElement("button");
         copyQuestionButton.setAttribute("class","copy-question")
         copyQuestionButton.innerText="Copy Question"
+        copyQuestionButton.addEventListener("click",()=>{
+            const text=questionSpan.innerText
+            navigator.clipboard.writeText(text);
+        });
 
         const feedbackList=document.createElement("div");
         feedbackList.setAttribute("clas","feedback-list")
