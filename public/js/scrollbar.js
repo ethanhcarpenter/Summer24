@@ -42,6 +42,7 @@ function sizeBar(container, scrollbarID, main) {
         clickPosition = e.clientY - constrainedTop;
         constrainedTop=constrainedTop-main.getBoundingClientRect().top
         let percentageMoved = (constrainedTop - 20) / ((main.getBoundingClientRect().height - 20-bottomOffset) - parseFloat(bar.style.height));
+        console.log(constrainedTop)
         
         const scrollAmount = (container.scrollHeight - main.getBoundingClientRect().height + bottomOffset) * percentageMoved;
         
@@ -66,6 +67,7 @@ function sizeBar(container, scrollbarID, main) {
         let newConstainedTop= ((percentageScrolled)*((main.getBoundingClientRect().height - 20-bottomOffset)-+parseFloat(bar.style.height)))+20
         newConstainedTop=newConstainedTop+main.getBoundingClientRect().top
         bar.style.top = `${newConstainedTop}px`;
+        console.log(newConstainedTop)
 
     }
 
