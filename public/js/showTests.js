@@ -23,11 +23,21 @@ function showTest(test){
         const qItem=document.createElement("div");
         qItem.setAttribute("class","question-item");
 
+        const qTextContainer=document.createElement("div");
+        qTextContainer.setAttribute("class","question-text-container")
+
+
+
         const questionNumber=document.createElement("span");
+        questionNumber.setAttribute("class","question-number");
         questionNumber.innerText=`Q${String(parseInt(i)+1).padStart(2,"0")}.`;
 
         const questionSpan=document.createElement("span");
+        questionSpan.setAttribute("class","question-text");
         questionSpan.innerText=question.question
+
+        const qAction=document.createElement("div");
+        qAction.setAttribute("class","question-actions")
 
         const mark = document.createElement("span");
         mark.innerText=question.mark;
@@ -39,10 +49,13 @@ function showTest(test){
         const feedbackList=document.createElement("div");
         feedbackList.setAttribute("clas","feedback-list")
 
-        qItem.appendChild(questionNumber);
-        qItem.appendChild(questionSpan);
-        qItem.appendChild(mark);
-        qItem.appendChild(copyQuestionButton);
+        
+        qTextContainer.appendChild(questionNumber);
+        qTextContainer.appendChild(questionSpan);
+        qAction.appendChild(mark);
+        qAction.appendChild(copyQuestionButton);
+        qItem.appendChild(qTextContainer);
+        qItem.appendChild(qAction);
         qList.appendChild(qItem);
     }
     info.appendChild(testNameSpan);
@@ -64,7 +77,7 @@ const test1 =
     {
         name: "Biology",
         questions: [
-            { question: "What is the powerhouse of the cell?", mark: "5" },
+            { question: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque in sequi rerum fuga, deleniti dolorum sapiente commodi necessitatibus? Dolore ad recusandae soluta, illum facere fuga, vero eius, a excepturi totam odit? Ratione impedit cupiditate harum dolore molestias voluptatibus aliquam quis quasi alias. Sed rerum nisi tenetur odio fuga ratione qui consequatur reprehenderit dignissimos quam! Fugiat similique aperiam sunt qui, ipsa quisquam voluptates nobis. Autem, provident illum? Nemo enim atque veniam voluptatibus, magni magnam suscipit et ullam excepturi nam cumque architecto sint, esse voluptas asperiores? Nesciunt corrupti accusamus deleniti, harum tempore sequi eius consequuntur doloribus, adipisci vitae accusantium soluta! Aperiam iste exercitationem et, quaerat consequatur accusantium doloremque sequi nisi voluptatibus sunt saepe unde dignissimos at autem dolorum atque. Atque, voluptates doloremque!", mark: "5" },
             { question: "What is the process of photosynthesis?", mark: "6" },
             { question: "What are the components of DNA?", mark: "4" }
         ]
